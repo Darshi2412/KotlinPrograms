@@ -1,0 +1,89 @@
+//       1st Program
+         val character= 'a'
+         val num = character.toInt()
+         println(num)
+
+
+//        2nd Program
+        var a=10
+        var b=5
+
+       println("$a $b")
+        var c=a
+        a=b
+        b=c
+
+        println("$a $b")
+
+//        3rd Program
+        var num = 5
+        var fac=1
+        for(i in num downTo 1){
+            fac*=i
+        }
+        println(fac)
+
+//        4th Program
+        val number = 6
+        val endnum = 100
+        for (i in 1..endnum){
+            var mul = number*i
+            println("$number * $i = $mul")
+        }
+
+//        5th Program
+        var num = 123
+        var reverse=0
+
+        while(num != 0){
+            var remainder = num%10
+            reverse = reverse*10+remainder
+            num = num/10
+
+        }
+        println(reverse)
+
+
+//        6th Program
+        var num = 120
+        var reverse=0
+        var temp = num
+        while(num != 0){
+            var remainder = num%10
+            reverse = reverse*10+remainder
+            num = num/10
+
+        }
+        if(temp == reverse){
+            println("$temp is a Palindrome Number")
+        }
+        else{
+            println("$temp is not a Palindrome Number")
+        }
+
+
+//        7th Program
+        var num = 371
+        var reverse=0
+        var temp = num
+        while(num != 0){
+            var remainder = num%10
+            reverse = (remainder*remainder*remainder)+reverse
+            num = num/10
+
+        }
+        if(temp == reverse){
+            println("$temp is a Armstrong Number")
+        }
+        else{
+            println("$temp is not a Armstrong Number")
+        }
+
+//        8th Program
+        var num = 12
+        for(i in 1..num){
+            if(num%i == 0){
+                print("$i ")
+            }
+        }
+
