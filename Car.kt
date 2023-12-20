@@ -6,41 +6,44 @@ import java.util.Scanner
 
 fun main(args : Array<String>) {
     val car1 = Car("Toyota",12.6f,4)
-    car1.tranformation()
+    car1.detailsOfCar()
+    println()
+    car1.information()
     println()
     car1.power()
     println()
-    car1.applyBrake()
+    //car1.setPrice()
     
     
 }
-open class Vehicle(val engine : String, val battery : Float, val brakes : Int){
-    open fun applyBrake(){   
-        println("The vehicle has $brakes brakes")
-      }
+abstract class Vehicle(val engine : String, val battery : Float, val brakes : Int){
     
+    abstract fun detailsOfCar()
     open fun power(){
-       println("The car has a battery of $battery v")
+         println("Battery provides power to the car")
+   
     }
-    open fun tranformation(){
-       println("The engine for car is $engine")
-               }
+    open fun information(){
+               println("Engine transform fuel into energy")
+    }
    
 }
 class Car(engine : String, battery : Float,  brakes : Int) :Vehicle(engine, battery ,brakes ) {
+    private var price : Int = 0
     
-   override fun applyBrake(){
-       super.applyBrake()
-       println("Brakes are there to stop the car")
+    private fun setPrice(){
+        println("The price are 150000")
+    }
+    
+   override fun detailsOfCar(){
+       println("The engine of car is $engine")
+        println("The battery of car is of $battery v")
+        println("The number of brakes in car are $brakes")
    }
-  override fun power(){
-       super.power()
-       println("Battery provides power to the car")
+   override fun information(){
+       println("The best engines are provided by Maruti Suzuki")
    }
-   override fun tranformation(){
-       super.tranformation()
-       println("Engine transform fuel into energy")
-   }
+  
 }
     
   
