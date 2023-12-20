@@ -5,45 +5,65 @@
 import java.util.Scanner
 
 fun main(args : Array<String>) {
-    val car1 = Car("Toyota",12.6f,4)
-    car1.detailsOfCar()
+    val student = Student("John",22)
+    student.Introduction()
+    student.calculateMarks(40,55,63)
+    
     println()
-    car1.information()
-    println()
-    car1.power()
-    println()
-    //car1.setPrice()
     
-    
-}
-abstract class Vehicle(val engine : String, val battery : Float, val brakes : Int){
-    
-    abstract fun detailsOfCar()
-    open fun power(){
-         println("Battery provides power to the car")
-   
-    }
-    open fun information(){
-               println("Engine transform fuel into energy")
-    }
-   
-}
-class Car(engine : String, battery : Float,  brakes : Int) :Vehicle(engine, battery ,brakes ) {
-    private var price : Int = 0
-    
-    private fun setPrice(){
-        println("The price are 150000")
-    }
-    
-   override fun detailsOfCar(){
-       println("The engine of car is $engine")
-        println("The battery of car is of $battery v")
-        println("The number of brakes in car are $brakes")
-   }
-   override fun information(){
-       println("The best engines are provided by Maruti Suzuki")
-   }
+    val businessman = Businessman("Amar",50)
+    businessman.Introduction()
+   	businessman.calculateIncome(500000)
   
+}
+abstract class Person(name : String, age : Int){
+    abstract fun Introduction()	//abstraction
+    
+   
+}
+class Student(var name : String, var age : Int) : Person(name,age) {
+    
+    override fun Introduction(){
+        println("I am Student")
+        println("My Name is ${name}")
+        println("My Age is ${age}")
+    }
+    private var percentage : Float = 0.0f
+    // encapsulation
+    fun calculateMarks(subject1 : Int, subject2 : Int, subject3 : Int){
+        percentage = (subject1+subject2+subject3)/3.0f
+       
+        println("My Percentage are $percentage")
+       
+    } 
+}
+class Businessman(var name : String ,var age : Int) : Person(name, age){	//inheritence
+    private var finalIncome : Int = 0
+    override fun Introduction(){
+        println("I am Businessman")
+        println("My Name is ${name}")
+        println("My Age is ${age}")
+    }
+    //encapsulation
+    fun calculateIncome(income : Int){
+        if(income < 250000){
+            println("Your income is $income")
+        }
+        else if(income >= 250000 || income < 500000){
+            finalIncome=(income*5)/100
+            println("Your income is $finalIncome")
+        }
+        else if(income >= 500000 || income < 1000000){
+            finalIncome=(income*20)/100
+            println("Your income is $finalIncome")
+        }
+        else{
+            finalIncome=(income*30)/100
+            println("Your income is $finalIncome")
+        }
+        
+    }
+    
 }
     
   
